@@ -22,6 +22,8 @@
       "es2020",
       "dom"
     ],
+    "allowSyntheticDefaultImports": true,
+    "skipLibCheck": true,
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
