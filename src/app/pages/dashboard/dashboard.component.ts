@@ -9,6 +9,7 @@ import { DashboardData } from 'src/app/core/dashboard.model';
 })
 export class DashboardComponent implements OnInit {
   data: DashboardData | null = null;
+  cachedAt: string | null = null;
   loading = true;
   errorMessage = '';
 
@@ -16,8 +17,9 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {
     this.dashboardService.getDashboard().subscribe({
-      next: (data) => {
-        this.data = data;
+      next: (result) => {
+        this.data = result.data;
+        this.cachedAt = result.cachedAt;
         this.loading = false;
       },
       error: () => {
