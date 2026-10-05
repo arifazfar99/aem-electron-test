@@ -1,12 +1,14 @@
 {
     "name": "aem-angular-test",
     "version": "0.0.0",
+    "main": "electron/main.js",
     "scripts": {
         "ng": "ng",
         "start": "ng serve",
         "build": "ng build",
         "watch": "ng build --watch --configuration development",
-        "test": "ng test"
+        "test": "ng test",
+        "electron": "ng build --base-href ./ && electron ."
     },
     "private": true,
     "dependencies": {
@@ -21,6 +23,7 @@
         "bootstrap": "^4.6.2",
         "bootstrap-icons": "^1.13.1",
         "d3": "^7.9.0",
+        "pouchdb-browser": "^9.0.0",
         "rxjs": "~7.5.0",
         "tslib": "^2.3.0",
         "zone.js": "~0.11.4"
@@ -32,6 +35,8 @@
         "@types/d3": "^7.4.3",
         "@types/jasmine": "~4.0.0",
         "@types/node": "^16.18.126",
+        "@types/pouchdb-browser": "^6.1.5",
+        "electron": "^39.8.10",
         "jasmine-core": "~4.3.0",
         "karma": "~6.4.0",
         "karma-chrome-launcher": "~3.1.0",
