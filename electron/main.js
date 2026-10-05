@@ -1,7 +1,18 @@
-const { app, BrowserWindow } = require('electron');
+const { app, BrowserWindow, session } = require('electron');
 const path = require('path');
 
 function createWindow() {
+    session.defaultSession.webRequest.onHeadersReceived((details, callback) => {
+        callback({
+        responseHeaders: {
+            ...details.responseHeaders,
+            'Content-Security-Policy': [
+            "default-src 'self'; style-src 'self' 'unsafe-inline'; connect-src http://test-demo.aemenersol.com"
+            ]
+        }
+        });
+    });
+    
     const win = new BrowserWindow({
         width: 1280,
         height: 800,
